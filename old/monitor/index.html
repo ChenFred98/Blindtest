@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Monitor</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/monitor/montserrat/stylesheet.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/monitor/animate.css" />
+    <link rel="stylesheet" type="text/css" href="/monitor/screen.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="bundle.js"></script>
+    
+    <div id="header">
+      <div id="players">&nbsp;</div>
+      <div id="next-button">Play next song</div>
+    </div>      
+    <div id="intro">
+      <h2>Join the game</h2>
+      <h1><span id="join-url"></span></h1>
+      <div>
+        <input type="text" id="playlistUrl" placeholder="Enter playlist URL" value="https://deezer.page.link/jgWCyForWLp2M8687">
+      </div>
+      <button id="loadPlaylist">Load playlist</button>
+      <button id="start" disabled>START</button>
+
+    </div>
+
+    <div id="game">
+      <div id="player">
+        <canvas id="visualization"></canvas>
+        <span id="timer"></span>
+      </div>
+
+      <ul id="suggestions"></ul>
+
+      <div id="layer">
+        <div id="hint"></div>
+
+        <div id="answer">
+          <div id="player-right"><span></span> guessed</div>
+          <div class="artist"></div>
+          <div class="title"></div>
+        </div>
+
+        <div id="winner">
+          <span id="winner-name"></span> is the winner!
+          <div class="artist"></div>
+          <div class="title"></div>
+        </div>
+      </div>
+
+      <div id="buzzer">
+        <div>
+          <span id="buzzing-player"></span> buzzed!<br>
+          Does he have the answer?
+        </div>
+        <div id="response-button">
+          <button data-value="1">YES</button>
+          <button data-value="0">NO</button>
+        </div>
+      </div>
+    </div>
+    <pre id="console"></pre>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/monitor/soundmanagerv2/script/soundmanager2-nodebug.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      function detectFlash() {
+        //http://stackoverflow.com/questions/998245/how-can-i-detect-if-flash-is-installed-and-if-not-display-a-hidden-div-that-inf
+        var hasFlash = false;
+        try {
+          var fo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+          if (fo) {
+            hasFlash = true;
+          }
+        } catch (e) {
+          if (
+            navigator.mimeTypes["application/x-shockwave-flash"] != undefined
+          ) {
+            hasFlash = true;
+          }
+        }
+        return hasFlash;
+      }
+
+      soundManager.url = "/monitor/soundmanagerv2/swf/";
+      if (detectFlash()) {
+        soundManager.usePeakData = true;
+        soundManager.flashVersion = 9;
+        soundManager.flash9Options = { usePeakData: true };
+      }
+    </script>
+    <script src="/monitor/monitor.js"></script>
+  </body>
+</html>
