@@ -4,7 +4,7 @@ import socket from '../../../services/socket';
 
 
 const CountdownSpinner = () => {
-  const [time, setTime] = useState(10);
+  const [time, setTime] = useState(15);
 
   useEffect(() => {
     if (time > 0) {

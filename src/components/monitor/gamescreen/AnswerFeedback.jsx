@@ -17,11 +17,11 @@ function AnswerFeedback() {
     if (modalShow) {
       const timerOverlay = setTimeout(() => {
         setOverlayState(false);
-      }, 3000);
+      }, 2500);
       const timerNext = setTimeout(() => {
         socket.emit("disableBuzzers");
         socket.emit("next");
-      }, 5000);
+      }, 3000);
       return ;
     }
   }, [modalShow]);

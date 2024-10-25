@@ -35,7 +35,7 @@ const AudioPlayer = () => {
     setTimeout(()=>{
       console.log('Song ended, emitting next event');
       socket.emit('next');
-    }, 3000);
+    }, 1500);
   };
 
   return (
