@@ -13,13 +13,15 @@ Gameplay
 
 Installing
 ----------
-* Get the source `git clone https://github.com/cypriendubois/Blindtest.git`
+* Get the source `git clone https://github.com/ChenFred98/Blindtest.git`
 * `cd Blindtest`
-* Install dependencies (socket.io, express, sqlite3) with `npm install .`
+* Install dependencies with `npm install`
+* Build the app with `npm run build`
+* Start the backend with `np; run start`
+* Start the frontend with `npm run dev`
 
 Starting the game
 -----------------
-* `npm start`
 * open `http://localhost:8080/monitor` in your browser. It is now the main screen.
 * each player can now join the game at `http://MAIN_SCREEN_IP_ADDRESS:8080/`
 * when all players are ready, you can start the game on the main screen. 
