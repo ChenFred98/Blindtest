@@ -17,7 +17,7 @@ Installing
 * `cd Blindtest`
 * Install dependencies with `npm install`
 * Build the app with `npm run build`
-* Start the backend with `np; run start`
+* Start the backend with `npm run start`
 * Start the frontend with `npm run dev`
 
 Starting the game
