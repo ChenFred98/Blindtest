@@ -163,7 +163,7 @@ const Game = {
     });
     const users = this.users.filter(item=>item.getName() != "").map(item => {
         return { username: item.getName(), score: item.getScore()};
-      });
+      }).sort((a, b) => b.score - a.score);
     this.io.sockets.in("game").emit("showResults", {users});
     for (let i = 0; i < this.users.length; i++) this.users[i].resetScore();
     return
